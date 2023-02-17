@@ -63,8 +63,7 @@ public class Article extends AuditingFields{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Article)) return false;
-        Article article = (Article) o;
+        if (!(o instanceof Article article)) return false;
         // 위의 두줄은 JDK 16이상부터 아래와 같이 대체 가능하다.
         // if (!(o instanceof Article article)) return false;
         return id != null && id.equals(article.id);

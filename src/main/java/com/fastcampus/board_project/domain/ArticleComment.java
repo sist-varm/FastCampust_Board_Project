@@ -35,8 +35,7 @@ public class ArticleComment extends AuditingFields{
     private String content;     // 본문
 
 
-    protected ArticleComment() {
-    }
+    protected ArticleComment() {}
 
     public ArticleComment(Article article, String content) {
         this.article = article;
@@ -46,6 +45,7 @@ public class ArticleComment extends AuditingFields{
     public static ArticleComment of(Article article, String content) {
         return new ArticleComment(article, content);
     }
+
 
     @Override
     public boolean equals(Object o) {
