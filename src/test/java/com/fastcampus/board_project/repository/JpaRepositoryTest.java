@@ -2,6 +2,7 @@ package com.fastcampus.board_project.repository;
 
 import com.fastcampus.board_project.config.JpaConfig;
 import com.fastcampus.board_project.domain.Article;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@ActiveProfiles("testdb")
 //@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 // 테스트 디비를 사용하지 않고 설정해둔 디비를 불러오는 자동 테스트 디비 불러오는 기능을 막는 기능
+@Disabled("Spring Data REST 통합테스트는 불필요하므로 제외시킴")
 @DisplayName("JPA 연결 테스트")
 @Import(JpaConfig.class)
 @DataJpaTest
