@@ -36,21 +36,12 @@ public class ArticleComment {
     private String content;     // 본문
 
     // metadata -> 자동으로 들어가도록 할 예정
-    @CreatedDate
-    @Column(nullable = false)
-    private LocalDateTime createdAt;    // 생성일시
-    @CreatedBy
-    @Column(nullable = false, length = 100)
-    private String createdBy;           // 생성자
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime modifiedAt;   // 수정일시
-    @LastModifiedBy
-    @Column(nullable = false, length = 100)
-    private String modifiedBy;          // 수정자
+    @CreatedDate @Column(nullable = false) private LocalDateTime createdAt; // 생성일시
+    @CreatedBy @Column(nullable = false, length = 100) private String createdBy; // 생성자
+    @LastModifiedDate @Column(nullable = false) private LocalDateTime modifiedAt; // 수정일시
+    @LastModifiedBy @Column(nullable = false, length = 100) private String modifiedBy; // 수정자
 
-    protected ArticleComment() {
-    }
+    protected ArticleComment() {}
 
     public ArticleComment(Article article, String content) {
         this.article = article;
@@ -60,6 +51,7 @@ public class ArticleComment {
     public static ArticleComment of(Article article, String content) {
         return new ArticleComment(article, content);
     }
+
 
     @Override
     public boolean equals(Object o) {
