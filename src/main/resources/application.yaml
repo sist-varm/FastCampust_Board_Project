@@ -30,6 +30,9 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 #  h2.console.enabled: true
   sql.init.mode: always
+  data.rest:
+    base-path: /api
+    detection-strategy: annotated
   # thymeleaf.cache: false
 #  data.rest:
 #    base-path: /api
