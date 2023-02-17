@@ -15,14 +15,20 @@ spring:
     password: thisis1TEST!
     driver-class-name: com.mysql.cj.jdbc.Driver
     # spring uses jpa as a bridge to make hibernate connection which is much smoother - check required
+    #h2랑 연결하기 위한 임시방편
+#    url : jdbc:h2:mem:testdb
+#    username : sa
+#    driver-class-name : org.h2.Driver
+
   jpa:
     defer-datasource-initialization: true
-    show-sql: true
     hibernate.ddl-auto: create
+    show-sql: true
     properties:
       hibernate.format_sql: true
       hibernate.default_batch_fetch_size: 100
-  h2.console.enabled: true
+    database-platform: org.hibernate.dialect.H2Dialect
+#  h2.console.enabled: true
   sql.init.mode: always
   data.rest:
     base-path: /api

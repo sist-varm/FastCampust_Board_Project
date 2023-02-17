@@ -27,7 +27,7 @@ import java.util.Set;
 })
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-public class Article {
+public class Article extends AuditingFields {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,12 +48,6 @@ public class Article {
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
 
-    // metadata -> 자동으로 들어가도록 할 예정
-    @CreatedDate @Column(nullable = false) private LocalDateTime createdAt;    // 생성일시
-    @CreatedBy @Column(nullable = false, length = 100) private String createdBy;           // 생성자
-    @LastModifiedDate @Column(nullable = false) private LocalDateTime modifiedAt;   // 수정일시
-    @LastModifiedBy @Column(nullable = false, length = 100) private String modifiedBy;          // 수정자
-
     protected Article() {}
 
     private Article(String title, String content, String hashtag) {
@@ -70,8 +64,7 @@ public class Article {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Article)) return false;
-        Article article = (Article) o;
+        if (!(o instanceof Article article)) return false;
         // 위의 두줄은 JDK 16이상부터 아래와 같이 대체 가능하다.
         // if (!(o instanceof Article article)) return false;
         return id != null && id.equals(article.id);
